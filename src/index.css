@@ -296,3 +296,68 @@ h1, h2, h3, h4, h5, h6 {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
 }
+
+/* ==========================================
+   RESPONSIVE DESIGN FOR MOBILE & TABLETS
+   ========================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px; /* Espacio para barra de navegación inferior móvil */
+  }
+
+  .container {
+    padding: 0.6rem;
+  }
+
+  .glass-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .form-control, .form-select, .btn {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+    max-height: 95vh;
+  }
+
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .mobile-column {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+  }
+}
+
+/* Sticky Bottom Nav Bar for Mobile */
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(11, 19, 43, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-color);
+  z-index: 900;
+  padding: 0.4rem 0.5rem;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    display: flex;
+  }
+}

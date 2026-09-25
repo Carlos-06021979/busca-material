@@ -129,6 +129,110 @@ export default function Navbar({
           );
         })}
       </nav>
+
+      {/* Navigation Bar Sticky Bottom para Dispositivos Móviles */}
+      <div className="mobile-bottom-bar">
+        <button 
+          onClick={() => setActiveTab('operator')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'operator' ? 'var(--secondary)' : 'var(--text-muted)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            fontSize: '0.7rem',
+            fontWeight: activeTab === 'operator' ? '800' : '500',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          <Truck size={22} color={activeTab === 'operator' ? 'var(--secondary)' : 'var(--text-muted)'} />
+          <span>Maquinista</span>
+        </button>
+
+        <button 
+          onClick={() => setActiveTab('map')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'map' ? 'var(--secondary)' : 'var(--text-muted)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            fontSize: '0.7rem',
+            fontWeight: activeTab === 'map' ? '800' : '500',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          <Grid size={22} color={activeTab === 'map' ? 'var(--secondary)' : 'var(--text-muted)'} />
+          <span>Plano 2D</span>
+        </button>
+
+        <button 
+          onClick={() => onOpenOperationsModal('ENTRADA')}
+          style={{
+            background: 'linear-gradient(135deg, #38b000 0%, #15803d 100%)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '46px',
+            height: '46px',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 15px rgba(56, 176, 0, 0.5)',
+            transform: 'translateY(-10px)',
+            cursor: 'pointer'
+          }}
+        >
+          <PlusCircle size={26} />
+        </button>
+
+        <button 
+          onClick={() => setActiveTab('search')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'search' ? 'var(--secondary)' : 'var(--text-muted)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            fontSize: '0.7rem',
+            fontWeight: activeTab === 'search' ? '800' : '500',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          <PackageSearch size={22} color={activeTab === 'search' ? 'var(--secondary)' : 'var(--text-muted)'} />
+          <span>Buscador</span>
+        </button>
+
+        <button 
+          onClick={() => setActiveTab('locations')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'locations' ? 'var(--secondary)' : 'var(--text-muted)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            fontSize: '0.7rem',
+            fontWeight: activeTab === 'locations' ? '800' : '500',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          <MapPin size={22} color={activeTab === 'locations' ? 'var(--secondary)' : 'var(--text-muted)'} />
+          <span>Zonas</span>
+        </button>
+      </div>
+
     </header>
   );
 }
