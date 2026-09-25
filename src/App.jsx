@@ -212,7 +212,7 @@ export default function App() {
 
         {/* Footer */}
         <footer style={{ marginTop: '3rem', padding: '1.5rem 0', textTransform: 'uppercase', textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-color)' }}>
-          Busca Material v1.0 • Sistema de Ubicación, Lotes y Trazabilidad de Almacén • Nitelmur
+          Busca Material v1.0 • Sistema de Ubicación, Lotes y Trazabilidad de Almacén • Cooperativa Levante Sur (JimboFresh)
         </footer>
 
       </div>

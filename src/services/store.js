@@ -150,12 +150,12 @@ const initLS = () => {
   if (!localStorage.getItem('bm_stock')) setLS('stock', SEED_STOCK);
   if (!localStorage.getItem('bm_movements')) setLS('movements', SEED_MOVEMENTS);
   if (!localStorage.getItem('bm_logs')) setLS('logs', []);
-  if (!localStorage.getItem('bm_user')) setLS('user', { name: 'Carlos Enguí', email: 'carlos@empresa.com', role: 'Administrador' });
+  if (!localStorage.getItem('bm_user')) setLS('user', { name: 'Carlos Enguí', email: 'carlos@jimbofresh.com', role: 'Administrador' });
 };
 
 initLS();
 
-export const getCurrentUser = () => getLS('user', { name: 'Carlos Enguí', email: 'carlos@empresa.com', role: 'Administrador' });
+export const getCurrentUser = () => getLS('user', { name: 'Carlos Enguí', email: 'carlos@jimbofresh.com', role: 'Administrador' });
 export const setCurrentUser = (user) => setLS('user', user);
 
 // ==========================================
