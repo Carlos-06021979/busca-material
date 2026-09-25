@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import OperatorView from './components/OperatorView';
+import WarehouseMap from './components/WarehouseMap';
 import MaterialSearch from './components/MaterialSearch';
 import AuditorView from './components/AuditorView';
 import LocationManager from './components/LocationManager';
@@ -24,7 +26,7 @@ import {
 } from './services/store';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('search');
+  const [activeTab, setActiveTab] = useState('operator');
 
   // Estado global de la aplicación
   const [locations, setLocations] = useState([]);
@@ -133,6 +135,24 @@ export default function App() {
             </div>
           ) : (
             <>
+              {activeTab === 'operator' && (
+                <OperatorView
+                  materials={materials}
+                  locations={locations}
+                  stock={stock}
+                  onOpenOperations={handleOpenOperationsModal}
+                />
+              )}
+
+              {activeTab === 'map' && (
+                <WarehouseMap
+                  locations={locations}
+                  stock={stock}
+                  materials={materials}
+                  onOpenOperations={handleOpenOperationsModal}
+                />
+              )}
+
               {activeTab === 'search' && (
                 <MaterialSearch
                   materials={materials}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { 
+  Truck,
+  Grid,
   PackageSearch, 
   ClipboardCheck, 
   MapPin, 
@@ -21,10 +23,12 @@ export default function Navbar({
   const hasSupabase = isSupabaseConfigured();
 
   const navItems = [
-    { id: 'search', label: 'Buscador & Stock', icon: PackageSearch },
-    { id: 'auditor', label: 'Vista Auditoría', icon: ClipboardCheck },
-    { id: 'locations', label: 'Gestión Ubicaciones', icon: MapPin },
-    { id: 'history', label: 'Historial & Fallos', icon: History }
+    { id: 'operator', label: '🚜 Modo Maquinista (Táctil)', icon: Truck, isHighlight: true },
+    { id: 'map', label: '🗺️ Plano 2D Almacén', icon: Grid },
+    { id: 'search', label: '🔎 Buscador General', icon: PackageSearch },
+    { id: 'auditor', label: '📋 Vista Auditoría', icon: ClipboardCheck },
+    { id: 'locations', label: '⚙️ Ubicaciones', icon: MapPin },
+    { id: 'history', label: '📜 Historial', icon: History }
   ];
 
   return (
@@ -92,21 +96,31 @@ export default function Navbar({
         {navItems.map(item => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
+          const isHighlight = item.isHighlight;
           return (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className="btn"
               style={{
-                background: isActive ? 'linear-gradient(135deg, rgba(58, 134, 255, 0.25) 0%, rgba(0, 245, 212, 0.15) 100%)' : 'transparent',
-                color: isActive ? 'var(--secondary)' : 'var(--text-muted)',
-                border: isActive ? '1px solid var(--secondary)' : '1px solid transparent',
+                background: isActive 
+                  ? (isHighlight 
+                      ? 'linear-gradient(135deg, #00f5d4 0%, #3a86ff 100%)' 
+                      : 'linear-gradient(135deg, rgba(58, 134, 255, 0.25) 0%, rgba(0, 245, 212, 0.15) 100%)') 
+                  : (isHighlight ? 'rgba(0, 245, 212, 0.12)' : 'transparent'),
+                color: isActive 
+                  ? (isHighlight ? '#0b132b' : 'var(--secondary)') 
+                  : (isHighlight ? 'var(--secondary)' : 'var(--text-muted)'),
+                border: isActive 
+                  ? (isHighlight ? '1px solid #00f5d4' : '1px solid var(--secondary)') 
+                  : (isHighlight ? '1px dashed rgba(0, 245, 212, 0.5)' : '1px solid transparent'),
                 borderRadius: '10px',
                 padding: '0.6rem 1.1rem',
                 fontSize: '0.88rem',
-                fontWeight: isActive ? '700' : '500',
+                fontWeight: isActive || isHighlight ? '800' : '500',
                 whiteSpace: 'nowrap',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                boxShadow: isHighlight && isActive ? '0 0 15px rgba(0, 245, 212, 0.4)' : 'none'
               }}
             >
               <Icon size={17} />
